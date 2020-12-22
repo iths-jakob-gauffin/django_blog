@@ -49,7 +49,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         #här gör vi också en  query där vi hämtar ut alla posts som inte blivit publicerade ännu
-        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+        return Post.objects.filter(published_date__isnull=True).order_by('create_date')
 
 
 ######################################
@@ -89,5 +89,13 @@ def comment_remove(request, pk):
 @login_required
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    post.publish
+    post.publish()
     return redirect('post_detail', pk=pk)
+
+# @login_required
+class WelcomeTemplateView(LoginRequiredMixin, TemplateView):
+    template_name = 'index.html'
+# @login_required
+# def welcome_message(TemplateView):
+#     template_name = 'index.html'
+
