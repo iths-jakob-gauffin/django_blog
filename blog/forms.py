@@ -10,8 +10,8 @@ class PostForm(forms.ModelForm):
     #nu för att styla ett speciell fält använder jag widgets
 
     widgets = {
-      'title': forms.TextInput(attrs={'class': 'textinputclass'})
-      'text': forms.TextArea(attrs={'class':'editable medium-editor-textarea postcontent'})
+      'title': forms.TextInput(attrs={'class': 'textinputclass'}),
+      'text': forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'})
     }
 
 
@@ -21,7 +21,7 @@ class CommentForm(forms.ModelForm):
     fields = ('author', 'text')
 
   widgets = {
-    'author': forms.TextInput(attrs={'class': 'textinputclass'})
-    'text': forms.TextArea(attrs={'class': 'editable medium-editor-textarea'})
+    'author': forms.TextInput(attrs={'class': 'textinputclass'}),
+    'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'})
   }
 
